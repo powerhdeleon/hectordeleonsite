@@ -56,6 +56,13 @@ a {
     padding: clamp(32px, 7vw, 88px) 0;
 }
 
+/* Perfil contenido */
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
 .profile-content {
     display: grid;
     gap: 42px;
@@ -66,6 +73,51 @@ a {
     box-shadow: var(--shadow-soft), inset 0 0 0 1px rgba(255, 255, 255, 0.04);
     backdrop-filter: blur(4px);
 }
+
+.profile-content::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: -3px;
+    border-radius: inherit;
+
+    background: conic-gradient(
+        from var(--angle),
+        transparent 0deg,
+        transparent 250deg,
+        #ff0000 280deg,
+        #ff5e00 305deg,
+        #ffd000 325deg,
+        #ffffff 335deg,
+        #ff5e00 345deg,
+        transparent 360deg
+    );
+
+    animation: fireWalk 2s linear infinite;
+}
+
+/* fin Perfil contenido */
+
+/* Mantiene limpio el interior */
+.profile-content::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 2px;
+    border-radius: 12px;
+    background: #111;
+}
+
+@keyframes fireWalk {
+    from {
+        --angle: 0deg;
+    }
+
+    to {
+        --angle: 360deg;
+    }
+}
+
 
 .eyebrow {
     margin: 0 0 12px;
