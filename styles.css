@@ -303,21 +303,7 @@ h1 {
     overflow: hidden;
     border: 0;
     border-radius: 0;
-    background:
-        radial-gradient(circle at 52% 28%, rgba(255, 106, 0, 0.42), transparent 30%),
-        radial-gradient(circle at 50% 46%, rgba(255, 209, 102, 0.16), transparent 34%),
-        linear-gradient(180deg, transparent 0%, rgba(7, 6, 6, 0.72) 100%);
     filter: drop-shadow(0 28px 70px rgba(0, 0, 0, 0.8));
-}
-
-.photo-placeholder::before {
-    content: "";
-    position: absolute;
-    inset: 12% 8% 0;
-    z-index: 0;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 106, 0, 0.22), rgba(0, 0, 0, 0));
-    clip-path: polygon(18% 0, 100% 0, 82% 100%, 0 100%);
-    opacity: 0.58;
 }
 
 .photo-placeholder img {
@@ -328,7 +314,8 @@ h1 {
     z-index: 1;
     object-fit: contain;
     object-position: top center;
-    filter: contrast(1.08) saturate(1.08) drop-shadow(0 0 28px rgba(255, 106, 0, 0.18));
+    /* Negative X offset because scaleX(-1) mirrors the shadow to the right */
+    filter: contrast(1.08) saturate(1.08) drop-shadow(-18px 10px 14px rgba(0, 0, 0, 0.85));
     transform: scaleX(-1);
 }
 
