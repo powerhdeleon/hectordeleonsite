@@ -108,6 +108,58 @@ a {
     background: #111;
 }
 
+.products-panel {
+    position: relative;
+    grid-column: 1;
+    padding: clamp(22px, 4vw, 42px);
+    border-radius: 8px;
+    background: linear-gradient(145deg, rgba(10, 13, 18, 0.9), rgba(24, 30, 40, 0.72));
+    box-shadow: var(--shadow-soft), inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(4px);
+}
+
+.products-panel::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: -3px;
+    border-radius: inherit;
+    background: conic-gradient(
+        from var(--angle),
+        transparent 0deg,
+        transparent 250deg,
+        #0a3d91 280deg,
+        #0077ff 305deg,
+        #00c8ff 325deg,
+        #e6f4ff 335deg,
+        #5aa9ff 345deg,
+        transparent 360deg
+    );
+    animation: fireWalk 2s linear infinite;
+}
+
+.products-panel::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 2px;
+    border-radius: 12px;
+    background: #0d1117;
+}
+
+.products-panel .social-link {
+    border-color: rgba(0, 150, 255, 0.32);
+}
+
+.products-panel .social-link:hover,
+.products-panel .social-link:focus-visible {
+    border-color: rgba(0, 200, 255, 0.8);
+    background:
+        linear-gradient(135deg, rgba(0, 119, 255, 0.28), transparent 34%),
+        linear-gradient(145deg, rgba(20, 28, 38, 0.96), rgba(8, 9, 12, 0.96));
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.58), 0 0 30px rgba(0, 150, 255, 0.24);
+}
+
 @keyframes fireWalk {
     from {
         --angle: 0deg;
@@ -217,7 +269,31 @@ h1 {
     align-self: stretch;
     min-height: min(680px, 78vh);
     display: flex;
-    align-items: start;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+}
+
+.bio {
+    padding: 22px;
+    border: 1px solid rgba(255, 106, 0, 0.18);
+    border-radius: 8px;
+    background: linear-gradient(145deg, rgba(13, 12, 12, 0.9), rgba(31, 28, 26, 0.72));
+    box-shadow: var(--shadow-soft);
+}
+
+.bio h2 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-accent);
+}
+
+.bio p {
+    margin-bottom: 0;
+    color: var(--color-muted);
+    font-weight: 300;
+    line-height: 1.7;
 }
 
 .photo-placeholder {
