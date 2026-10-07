@@ -107,7 +107,9 @@ a {
 
 .products-panel {
     position: relative;
-    grid-column: 1;
+    grid-column: 2;
+    grid-row: 2;
+    align-self: start;
     padding: clamp(22px, 4vw, 42px);
     border-radius: 8px;
     background: linear-gradient(145deg, rgba(10, 13, 18, 0.9), rgba(24, 30, 40, 0.72));
@@ -144,6 +146,50 @@ a {
     background: #0d1117;
 }
 
+.book-panel {
+    grid-column: 1;
+    background: linear-gradient(145deg, rgba(8, 24, 12, 0.9), rgba(20, 56, 28, 0.72));
+}
+
+.book-panel::before {
+    background: conic-gradient(
+        from var(--angle),
+        transparent 0deg,
+        transparent 250deg,
+        #00a83a 280deg,
+        #00ff5a 305deg,
+        #7dff4d 325deg,
+        #f0fff0 335deg,
+        #39ff14 345deg,
+        transparent 360deg
+    );
+}
+
+.book-panel::after {
+    background: linear-gradient(145deg, #07170c, #0f2a16);
+}
+
+.book-panel .social-section h2 {
+    color: #39ff14;
+    text-shadow: 0 0 14px rgba(57, 255, 20, 0.6);
+}
+
+.products-panel.book-panel .social-link {
+    border-color: rgba(57, 255, 20, 0.45);
+    background:
+        linear-gradient(135deg, rgba(57, 255, 20, 0.16), transparent 28%),
+        linear-gradient(145deg, rgba(18, 44, 24, 0.92), rgba(5, 14, 8, 0.92));
+}
+
+.products-panel.book-panel .social-link:hover,
+.products-panel.book-panel .social-link:focus-visible {
+    border-color: rgba(57, 255, 20, 0.95);
+    background:
+        linear-gradient(135deg, rgba(0, 255, 90, 0.35), transparent 34%),
+        linear-gradient(145deg, rgba(20, 50, 26, 0.96), rgba(6, 14, 8, 0.96));
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.58), 0 0 34px rgba(57, 255, 20, 0.45);
+}
+
 .products-panel .social-link {
     border-color: rgba(0, 150, 255, 0.32);
 }
@@ -155,6 +201,38 @@ a {
         linear-gradient(135deg, rgba(0, 119, 255, 0.28), transparent 34%),
         linear-gradient(145deg, rgba(20, 28, 38, 0.96), rgba(8, 9, 12, 0.96));
     box-shadow: 0 18px 42px rgba(0, 0, 0, 0.58), 0 0 30px rgba(0, 150, 255, 0.24);
+}
+
+.products-panel .social-link.product-gym {
+    border-color: rgba(255, 60, 90, 0.6);
+    background:
+        linear-gradient(135deg, rgba(255, 60, 90, 0.22), transparent 40%),
+        linear-gradient(145deg, rgba(48, 14, 22, 0.94), rgba(14, 6, 8, 0.94));
+}
+
+.products-panel .social-link.product-gym:hover,
+.products-panel .social-link.product-gym:focus-visible {
+    border-color: rgba(255, 90, 120, 1);
+    background:
+        linear-gradient(135deg, rgba(255, 60, 90, 0.4), transparent 45%),
+        linear-gradient(145deg, rgba(58, 16, 26, 0.96), rgba(16, 6, 9, 0.96));
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.58), 0 0 34px rgba(255, 60, 90, 0.45);
+}
+
+.products-panel .social-link.product-frakcio {
+    border-color: rgba(170, 90, 255, 0.6);
+    background:
+        linear-gradient(135deg, rgba(170, 90, 255, 0.22), transparent 40%),
+        linear-gradient(145deg, rgba(34, 18, 52, 0.94), rgba(10, 6, 16, 0.94));
+}
+
+.products-panel .social-link.product-frakcio:hover,
+.products-panel .social-link.product-frakcio:focus-visible {
+    border-color: rgba(195, 130, 255, 1);
+    background:
+        linear-gradient(135deg, rgba(170, 90, 255, 0.4), transparent 45%),
+        linear-gradient(145deg, rgba(42, 20, 64, 0.96), rgba(12, 6, 20, 0.96));
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.58), 0 0 34px rgba(170, 90, 255, 0.45);
 }
 
 @keyframes fireWalk {
@@ -331,6 +409,11 @@ h1 {
     .photo-panel {
         min-height: 0;
         order: -1;
+    }
+
+    .products-panel {
+        grid-column: 1;
+        grid-row: auto;
     }
 
     .photo-placeholder {
